@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EdiMars' Dashboard Page</title>
+    <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.2.0/css/line.css">
+    <link href='https://cdn.boxicons.com/3.0.4/fonts/basic/boxicons.min.css' rel='stylesheet'/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/tailwind.config.js"></script>
+    <link rel="stylesheet" href="/index.css">
+    <link href="/css/output.css" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ovo&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Ovo&display=swap" rel="stylesheet">  
+      
+</head>
+<body id="main">
+  <nav class="flex items-center justify-between p-4 bg-[#203040] fixed w-full left-0 top-0 z-10">
+    <a href="" class="flex items-center gap-1">
+      <img src="/assets/favicon.ico" alt="Logo" class="w-10">
+      <p class="">Marcus</p>
+    </a>
+    <div class="">
+      <a href="/#home">Home</a>
+      <a href="/#about">About</a>
+      <a href="/#contact">Contact</a>
+      <a href="/#services">Services</a>
+      <a href="/#work">My Work</a>
+      <a href="/api/signup">sign Up</a>
+      <a href="/api/login">Login</a>
+    </div>
+
+    <div class="">
+      <a href="/api/logout">Logout</a>
+    </div>
+  </nav>
+
+  <div class="flex items-center justify-center mt-[10%] bg-[#eee] shadow-md p-3">
+    <p class="text-lg font-semibold text-emerald-700">Welcome Admin!</p>
+  </div>
+
+  <p class="mb-1 mt-8 text-xl font-semibold text-pretty text-violet-600 flex items-center justify-center">These're from contact form</p>
+   <div class="flex items-center gap-3 p-4 w-[90%] bg-white shadow-md ml-5 mt-[2%]">
+      <% if(items && items.length > 0) {%>
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Website</th>
+              <th>Subject</th>
+              <th>Message</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% items.forEach(item => { %>
+              <tr>
+                <td><%= item.name ||'N/A' %></td>
+                <td><%= item.email ||'N/A' %></td>
+                <td><%= item.website ||'N/A' %></td>
+                <td><%= item.subject ||'N/A' %></td>
+                <td><%= item.message || 'N/A' %></td>
+                <td>
+                  <div class="flex items-center gap-4">
+                    <a href="/api/edit/<%= item.id %>" class="btn btn-sm btn-warning"><img src="/assets/edit_icon.jpg" alt="" class="w-24" title="Edit">
+                    <a href="/api/view/<%= item.id %>" class="btn btn-sm btn-warning bg-primary"><img src="/assets/view_icon.png" alt="" class="w-24" title="View"></a>
+                    <form action="/api/delete/<%= item.id %>" method="POST" class="d-inline">            
+                      <button type="submit" class="btn" onclick="return confirm('Are you sure you want to delete this contact?')"><img src="/assets/trash.png" alt="" class="w-24 text-xl font-semibold" title="Delete"></button>
+                    </form>
+                  </div>
+                </td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      <%}%> 
+   </div>
+
+
+   <footer>
+      <%- include( 'partials/footer' ) %>
+   </footer>
+   <script src="/script.js"></script>
+</body>
+</html>
+
+

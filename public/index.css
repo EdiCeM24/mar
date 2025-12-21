@@ -1,0 +1,111 @@
+
+@media screen and (max-width: 540px) {
+    .nav {
+        margin-top: -5%;
+    }
+}
+
+/** FOR DARK-MODE TOGGLE ICON **/
+.input {
+  visibility: hidden;
+}
+.label {
+  position: absolute;
+  width: 80px;
+  height: 40px;
+  background-color: rgb(18, 26, 32);
+  border-radius: 20px;
+  cursor: pointer;
+}
+.circle {
+  width: 34px;
+  background-color: #fff;
+  height: 34px;
+  border-radius: 50%;
+  top: 3px;
+  position: absolute;
+  left: 3px;
+  animation: animateOff .4s linear backwards;  /** forwards **/
+}
+.input:checked + .label {
+  background-color: #fff;
+}
+.input:checked + .label .circle {
+  animation: animateOn .4s linear forwards;
+  background-color: black;
+}
+@keyframes animateOn {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(40px);
+  }
+}
+@keyframes animateOff {
+  0% {
+    transform: translateX(40px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+
+
+/** SIGNUP AND LOGIN PAGE BREAKPOINT **/
+@media screen and (max-width: 568px ) {
+  .main {
+    width: 100%;
+    height: 100%;
+  }
+  .form-container {
+    height: 100%;
+  }
+  .form-control {
+    width: 100%;
+    height: 100%;
+    padding: 25px 30px;
+    position: relative;
+  }
+  .form-input input {
+    width: 100%;
+    padding: 2px 3px;
+  }
+  .form-text {
+    margin-left: -10%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 1%;
+  }
+  .form-checkbox {
+    margin-top: -4%;
+  }
+  .mobile {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    width: 200px;
+    height: 200px;
+  }
+  #btn {
+    margin-left: -30%;
+  }
+  /** Sign Up Page **/
+  .signup-input input {
+    width: 100%;
+  }
+  .form-checkbox {
+    position: relative;
+  }
+  .signup-btn {
+    margin-top: 65%;
+    position: absolute;
+    top: 55%;
+  }
+  .text-display {
+    margin-top: 25%;
+  }
+  .skill-range {
+    margin-top: 70%;
+  }
+}

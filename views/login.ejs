@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EdiMars' Login Page</title>
+    <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.2.0/css/line.css">
+    <link href='https://cdn.boxicons.com/3.0.4/fonts/basic/boxicons.min.css' rel='stylesheet'/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/tailwind.config.js"></script>
+    <link rel="stylesheet" href="/index.css">
+    <link href="/css/output.css" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ovo&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Ovo&display=swap" rel="stylesheet">  
+      
+</head>
+<body id="main" class="p-0 m-0 h-screen bg-slate-400">
+  <div class="container mx-auto h-screen">
+    <nav class="flex items-center justify-between h-8 p-8 bg-[#203040] w-full left-0 fixed top-0 z-10">
+      <a href="" class="flex items-center gap-1">
+        <img src="/assets/favicon.ico" alt="" class="w-6">
+      </a>
+
+      <div class="">
+        <a href="/api/logout" class="text-white font-semibold">Logout</a>
+      </div>
+    </nav>
+
+    <main class="main mt-24 flex h-screen items-center justify-center">
+      <div class="form-container flex md:h-[85%] items-center justify-center md:w-[80%] p-10 flex-col m-4 bg-white shadow-md rounded-md transition duration-500 ease-in">
+        <strong class="mb-3 mt-4 text-rose-600">LOGIN HERE</strong>
+        <p class="mt-1 text-black font-semibold flex flex-nowrap" id="login-text"></p>
+        <form action="/api/login" method="post" class="form-control w-full md:h-[85%] mt-6 bg-[#eee] shadow-[0_4px_8px_rgba(0_0_0_0.4)] p-8 m-6 leading-3 relative">
+          <div class="form-input p-2 my-3 mx-2 ml-10">
+            <input type="email" class="w-[100%] py-3 px-2 border-t-none border-l-none border-r-none outline-none border-b-4 border-blue-500 bg-transparent text-[16px] font-semibold text-slate-900" name="email" id="email" placeholder="Enter your email..." required>
+          </div>
+
+          <div class="form-input p-2 my-3 mx-2 ml-10">
+            <input type="password" class="w-[100%] py-3 px-2 border-t-none border-l-none border-r-none outline-none border-b-4 border-blue-500 bg-transparent text-[16px] font-semibold text-slate-900" name="password" id="password" placeholder="Enter your password..." required>
+          </div>
+          <div class="form-text p-2 flex items-center gap-20 mb-4 ml-12">
+            <p class="text-base font-semibold">Dan't have an account?  <a href="/api/signup" class="text-blue-800 hover:text-sky-600 transition duration-500 ease-linear text-lg font-semibold">Sign Up</a></p>
+            <p class="text-base font-semibold">have an account?  <a href="" class="text-blue-800 hover:text-sky-600 transition duration-500 ease-linear text-lg font-semibold">Login</a></p>
+          </div>  
+          <div class="form-checkbox p-2 flex items-center mb-2 gap-1 ml-12 relative">
+           
+
+          <div id="btn" class=" text-white font-semibold flex justify-center items-center absolute top-[23%] left-[40%] mt-[6%] mb-3">
+            <button type="submit" class="bg-sky-700 hover:bg-sky-600 transition duration-500 ease-linear py-4 px-6 rounded-md">Login</button>
+          </div>
+        </form>
+      </div>
+    </main>
+  </div>
+  <footer>
+       <%- include( 'partials/footer' ) %>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
