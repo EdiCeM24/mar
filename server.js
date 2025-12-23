@@ -8,6 +8,8 @@ const bodyParser = require('body-parser');
 const bcryptSalt = require('bcryptjs');
 const saltRounds = 10;
 const jwt = require("jsonwebtoken");
+const { message } = require("statuses");
+const methodOverride = require("method-override");
 
 
 dotenv.config()
@@ -31,7 +33,7 @@ pool.query('SELECT NOW()', (err, res) => {
     }
 });
 
-
+app.use(methodOverride('_method'));
 app.use(cors());
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
@@ -89,11 +91,9 @@ app.post("/api/contacts", (req, res) => {
       } else {
         console.log('Contact inserted:', result.rows[0]);
         res.status(201).json({ message: 'Contact inserted successfully!' });
+        return res.redirect('/');
       }
     });
-
-    res.redirect('/');
-
   } catch (error) {
     console.error('Error processing request:', error);
     res.status(500).json({ error: 'Internal server error' });
@@ -210,17 +210,24 @@ app.post("/api/logout", (req, res) => {
     return res.redirect('/api/login');
   });
 });
-app.delete("/api/delete", (req, res) => {
-  req.session.destroy((err) => {
-    if (err) {
-      console.error("Error logging out:", err);
-      res.status(500).json({ error: "Error logging out" });
-    } else {
-      res.status(200).json({ message: "Contact deleted successfully!" });
+
+app.post("/api/delete/:id", async (req, res) => {
+  const { id } = req.params.id;
+ try {
+    console.log(req.params);
+    const result = await pool.query('DELETE FROM edimar WHERE id = $1', [id]);
+    if(result.rowCount > 0) {
+      res.redirect('/dashboard');
+      res.status(200).send({ message: "Contact deleted successfully!"});
+    }else {
+      res.status(404).send({ message: "Contact not found!"});
     }
-    return res.redirect('/api/dashboard');
-  });
+ } catch (error) {
+   console.log(error);
+   res.status(500).send({ message: "Error deleting contact"});
+ }
 });
+
 app.put("/api/view", (req, res) => {
   req.session.destroy((err) => {
     if (err) {
