@@ -67,10 +67,10 @@
                 <td class="text-xs font-normal text-pretty gap-4"><%= item.message || 'N/A' %></td>
                 <td>
                   <div class="flex items-center gap-4">
-                    <a href="/api/edit/<%= item.id %>" class="btn btn-sm btn-warning"><img src="/assets/edit_icon.jpg" alt="" class="w-24" title="Edit">
-                    <a href="/api/view/<%= item.id %>" class="btn btn-sm btn-warning bg-primary"><img src="/assets/view_icon.png" alt="" class="w-24" title="View"></a>
+                    <!-- <a href="/api/edit/<%= item.id %>" class="btn btn-sm btn-warning"><img src="/assets/edit_icon.jpg" alt="" class="w-24" title="Edit"> -->
+                    <a href="/api/view/<%= item.id %>" class="btn btn-sm btn-warning bg-primary"><img src="/assets/view_icon.png" alt="" class="w-14" title="View"></a>
                     <form action="/api/delete/<%= item.id %>" method="DELETE" class="d-inline">            
-                      <button type="submit" class="btn" onclick="return confirm('Are you sure you want to delete this contact?')"><img src="/assets/trash.png" alt="" class="w-24 text-xl font-semibold" title="Delete"></button>
+                      <button type="submit" class="btn" onclick="return confirm('Are you sure you want to delete this contact?')"><img src="/assets/trash.png" alt="" class="w-14 text-xl font-semibold" title="Delete"></button>
                     </form>
                   </div>
                 </td>

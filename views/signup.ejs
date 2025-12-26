@@ -32,7 +32,13 @@
     <main class="main mt-24 flex h-screen items-center justify-center">
       <div class="form-container flex h-[100%] items-center justify-center lg:w-[80%] p-10 py-10 px-10 flex-col m-4 bg-white shadow-md rounded-md transition duration-500 ease-in">
         <strong class="mb-3 mt-4 text-rose-600">SIGN UP HERE</strong>
-        <p class="mt-1 text-black font-semibold flex flex-nowrap" id="signup-text"></p>
+        <p class="mt-1 text-black font-semibold flex flex-nowrap" id="signup-text">
+          <% if (messages.error) { %>
+           <%= locals.messages.error %>
+          <% } else if (messages.success) { %>
+        <%= locals.messages.success %>
+          <% } %>
+        </p>
         <form action="/api/signup" method="post" class="form-control lg:w-[85%] w-full h-[100%] mt-4 bg-[#eee] shadow-[0_4px_8px_rgba(0_0_0_0.4)] p-6 mb-3 m-6 leading-3 relative">
           <div class="signup-input p-2 my-1 mx-2 ml-10">
             <input type="text" class="form-input w-[80%] py-3 px-2 border-t-none border-l-none border-r-none outline-none border-b-4 border-blue-500 bg-transparent text-[16px] font-semibold text-slate-900" name="fullname" id="fName" placeholder="Enter your full name..." required>

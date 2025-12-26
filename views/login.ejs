@@ -34,7 +34,13 @@
     <main class="main mt-24 flex h-screen items-center justify-center">
       <div class="form-container flex md:h-[85%] items-center justify-center md:w-[80%] p-10 flex-col m-4 bg-white shadow-md rounded-md transition duration-500 ease-in">
         <strong class="mb-3 mt-4 text-rose-600">LOGIN HERE</strong>
-        <p class="mt-1 text-black font-semibold flex flex-nowrap" id="login-text"></p>
+        <p class="mt-1 text-black font-semibold flex flex-nowrap" id="login-text">
+          <% if (messages.error) { %>
+           <%= locals.messages.error %>
+          <% } else if (messages.success) { %>
+        <%= locals.messages.success %>
+          <% } %>
+        </p>
         <form action="/api/login" method="post" class="form-control w-full md:h-[85%] mt-6 bg-[#eee] shadow-[0_4px_8px_rgba(0_0_0_0.4)] p-8 m-6 leading-3 relative">
           <div class="form-input p-2 my-3 mx-2 ml-10">
             <input type="email" class="w-[100%] py-3 px-2 border-t-none border-l-none border-r-none outline-none border-b-4 border-blue-500 bg-transparent text-[16px] font-semibold text-slate-900" name="email" id="email" placeholder="Enter your email..." required>
@@ -45,8 +51,8 @@
           </div>
           <div class="form-text p-2 flex items-center gap-20 mb-4 ml-12">
             <p class="text-base font-semibold">Dan't have an account?  <a href="/api/signup" class="text-blue-800 hover:text-sky-600 transition duration-500 ease-linear text-lg font-semibold">Sign Up</a></p>
-            <p class="text-base font-semibold">have an account?  <a href="" class="text-blue-800 hover:text-sky-600 transition duration-500 ease-linear text-lg font-semibold">Login</a></p>
-          </div>  
+            <!-- <p class="text-base font-semibold">have an account?  <a href="" class="text-blue-800 hover:text-sky-600 transition duration-500 ease-linear text-lg font-semibold">Login</a></p>-->
+          </div>
           <div class="form-checkbox p-2 flex items-center mb-2 gap-1 ml-12 relative">
            
 

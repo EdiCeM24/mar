@@ -23,10 +23,10 @@
                             <!-- it was right-0 w-11/12 -->
    <div class="fixed top-0 left-0 w-full -z-10 translate-y-[-80%]">
       <!-- img here like color-->
-       <img src="/assets/bg-color-2.jpg" alt="" class="w-full right-0 opacity-0.1">
+      <img src="/assets/bg-color-2.jpg" alt="" class="w-full right-0 opacity-0.1">
    </div>
-
-   <nav class="nav w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50">
+     
+   <nav class="nav w-full fixed mt-[-15%] px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50">
       <a href="/" class="">
         <img src="/assets/mylogo-name.png" alt="Logo" class="w-16 cursor-pointer mr-14 "> 
       </a>
@@ -73,9 +73,18 @@
          <li><a href="#contact" onclick="closeMenu()">contact Me</a></li> 
       </ul>
    </nav> 
-
+   
+   <div class="w-full h-screen flex justify-center items-center">
+      <p>
+        <% if (messages.error) { %>
+           <%= locals.messages.error %>
+          <% } else if (messages.success) { %>
+        <%= locals.messages.success %>
+          <% } %>vvvvvvvvvvvvvvvvv 
+      </p>
+   </div>
    <!---Header Section-->
-   <div class="w-11/12 max-w3xl text-center mx-auto h-screen flex flex-col items-center justify-center gap-4">
+   <div class="w-11/12 max-w-3xl mt-[15%] text-center mx-auto h-screen flex flex-col items-center justify-center gap-4">
       <img src="/assets/edi.png" alt="" class="rounded-full w-32 mt-[10%]">
       <h3 class="flex items-end gap-2 text-xl md:text-2xl  mb-2">Hi! I'm Marcus Edidiong Cletus <img src="/assets/pointer.jpg" alt="" class="w-6"></h3>
 
@@ -98,7 +107,7 @@
    </div>
 
    <!---- ABOUT ME ---->
-   <div id="about" class="w-full px-[12%] py-10 scroll-mt-20">
+   <div id="about" class="w-full px-[12%] mt-[10%] py-10 scroll-mt-20">
       <h3 class="text-center mb-2 text-lg">Introduction</h3>
       <h2 class="text-center text-5xl">About Me</h2>
 
@@ -233,7 +242,7 @@
       <div class="mobile grid grid-cols-4 my-10 gap-5 p-4"> <!--for mobile-->
          <div class="aspect-square bg-[url('/assets/myblog-code3.jpg')] bg-cover bg-no-repeat bg-center rounded-lg relative cursor-pointer ">
 
-            <div class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 px-3 py-5 flex items-center justify-between duration-500 group-hover:bottom-7">
+            <div class="bg-white w-10/12 rounded-md absolute mt-8 bottom-5 left-1/2 -translate-x-1/2 px-3 py-5 flex items-center justify-between duration-500 group-hover:bottom-7">
                <div>
                   <h2 class="font-semibold">Frontend project</h2>
                   <p class="text-sm text-gray-700">Web Development</p>
@@ -245,7 +254,7 @@
          </div>
          <div class="aspect-square bg-[url('/assets/myblog-code3.jpg')] bg-cover bg-no-repeat bg-center rounded-lg relative cursor-pointer ">
 
-            <div class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 px-3 py-5 flex items-center justify-between duration-500 group-hover:bottom-7">
+            <div class="bg-white w-10/12 rounded-md absolute mt-8 bottom-5 left-1/2 -translate-x-1/2 px-3 py-5 flex items-center justify-between duration-500 group-hover:bottom-7">
                <div>
                   <h2 class="font-semibold">React Native</h2>
                   <p class="text-sm text-gray-700">Mobile App Dev.</p>
@@ -257,7 +266,7 @@
          </div>
          <div class="aspect-square bg-[url('/assets/myblog-code3.jpg')] bg-cover bg-no-repeat bg-center rounded-lg relative cursor-pointer ">
 
-            <div class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 px-3 py-5 flex items-center justify-between duration-500 group-hover:bottom-7">
+            <div class="bg-white w-10/12 rounded-md absolute mt-8 bottom-5 left-1/2 -translate-x-1/2 px-3 py-5 flex items-center justify-between duration-500 group-hover:bottom-7">
                <div>
                   <h2 class="font-semibold">Full Stack</h2>
                   <p class="text-sm text-gray-700">Web Development</p>
@@ -269,7 +278,7 @@
          </div>
          <div class="aspect-square bg-[url('/assets/myblog-code3.jpg')] bg-cover bg-no-repeat bg-center rounded-lg relative cursor-pointer ">
 
-            <div class="bg-white w-10/12 rounded-md absolute bottom-5 left-1/2 -translate-x-1/2 px-3 py-5 flex items-center justify-between duration-500 group-hover:bottom-7">
+            <div class="bg-white w-10/12 rounded-md absolute mt-8 bottom-5 left-1/2 -translate-x-1/2 px-3 py-5 flex items-center justify-between duration-500 group-hover:bottom-7">
                <div>
                   <h2 class="font-semibold">Frontend project</h2>
                   <p class="text-sm text-gray-700">UX/UI Design</p>
@@ -280,15 +289,17 @@
             </div>
          </div>
       </div>
+
       <a href="#" class="w-max flex items-center justify-centergap-2 text-gray-700 
         border-[0.5px] border-gray-700 rounded-full py-3 
         px-10 mx-auto my-20 hover:bg-violet-400 transition duration-500 
-        ease-in">Show more <img src="/assets/right-arrow.jpg" alt="" class="w-6"> 
+        ease-in">Show more <img src="/assets/right-arrow.jpg" alt="" class="w-6">
+      </a>   
    </div>
 
    <!-- CONTACT SECTION -->                                        <!-- bg image needs to be changed to lighter one -->
-    <div id="contact" class="w-full px-[12%] overflow-hidden py-10 scroll-mt-20 bg-[url('/assets/bg-color-3.jpg')] bg-no-repeat bg-[length:90%_auto] bg-center">
-       <div class="">
+    <div id="contact" class="contact w-[90%] px-[12%] overflow-hidden py-10 scroll-mt-20 bg-[url('/assets/bg-color-3.jpg')] bg-no-repeat bg-[length:90%_auto] bg-center">
+       <div class="mobile-2">
          <h3 class="text-center mb-2 text-lg">Connect with me</h3>
          <h2 class="text-center text-5xl">Get in touch</h2> 
          <p class="text-center max-w-2xl mx-auto mt-5 mb-12">I'd love to hear from you! If you have any questions, comments or feedback. Please, use the form, email or phone number below to reach out.</p>
@@ -336,6 +347,18 @@
      <footer>
        <%- include( 'partials/footer' ) %>
      </footer>
+     
+       <% if (!user) {%>
+         <script>
+            document.addEventListener("click", (e) => {
+               if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON') {
+                  e.preventDefault();
+                  window.location.href = '/api/login';
+               }
+            });
+         </script>
+       <%}%>
+     
      <script src="script.js"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.3/dist/boxicons.js" crossorigin="anonymous"></script>
    </body>    
